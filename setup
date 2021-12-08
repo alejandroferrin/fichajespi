@@ -1,0 +1,46 @@
+ #!/bin/bash
+echo "#####################__Creando carpeta database__"
+mkdir /home/pi/database_data
+
+echo "#####################__Actualizando__"
+sudo apt-get update && sudo apt-get -y upgrade
+
+echo "#####################__Clonando repositorio"
+git clone https://github.com/alejandroferrin/fichajespi.git
+
+echo "#####################__Instalando JDK__"
+sudo apt -y install openjdk-11-jdk
+
+echo "#####################__Instalando SmartCard Reader__"
+sudo apt-get -y install subversion autoconf debhelper flex libusb-dev libpcsclite-dev libpcsclite1 libccid pcscd pcsc-tools libpcsc-perl libusb-1.0-0-dev libtool libssl-dev cmake checkinstall
+
+echo "#####################__Instalando ACS driver__"
+sudo dpkg -i /home/pi/fichajespi/DriverACS/libacsccid1_1.1.8-1~bpo10+1_armhf.deb
+
+echo "#####################__Instalando Docker__"
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+echo "#####################__Dando permisos usuario para grupo docker__"
+sudo usermod -aG docker pi
+echo "#####################__Instalando docker-compose__"
+sudo apt -y install docker-compose
+
+echo "#####################__Instalando vim__"
+sudo apt -y install vim
+echo "#####################__Instalando vnc__"
+sudo apt -y install realvnc-vnc-server realvnc-vnc-viewer
+
+echo "#####################__Compilando app de escritorio__"
+sudo apt -y install maven
+cd /home/pi/fichajespi/fichajesPi_desktop
+mvn clean package
+
+echo "#####################__Configurando servicio pcscd__"
+sudo sed -i '$d' /etc/rc.local
+sudo echo "sudo systemctl start pcscd" >> /etc/rc.local
+sudo echo "exit 0" >> /etc/rc.local
+
+sudo cp /home/pi/fichajespi/fichajespi.desktop /etc/xdg/autostart/
+
+echo "#####################__Reinicio necesario__"
+echo "#####################__Ahora apaga la raspberry y vuelve a encenderla__"

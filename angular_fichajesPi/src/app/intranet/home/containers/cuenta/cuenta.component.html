@@ -1,0 +1,61 @@
+<div class="bg-light pb-3 rounded mt-4 mx-4">
+
+  <h3 class="text-center selected bg-waves rounded p-3 ">Cambiar Password</h3>
+
+  <form class="mt-4" (ngSubmit)="submit()" novalidate #f="ngForm">
+
+    <div class="w-75 mx-auto row justify-content-between">
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="pass1"><b><i class="bi bi-key"></i>Password</b></label>
+          <div class="input-group ">
+            <input #d="ngModel" type="password" class="form-control" name="pass1" id="pass1" [(ngModel)]="pass1"
+              required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$">
+          </div>
+          <div *ngIf="d.invalid && (d.dirty || d.touched)" class="alert-danger my-3 p-2 rounded">
+            <div *ngIf="d.errors?.required">
+              El campo es obligatorio.
+            </div>
+            <div *ngIf="d.errors?.pattern">
+              La contraseña debe contener al menos 6 caracteres con mayúsculas, minúsculas y números.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="pass2"><b><i class="bi bi-key-fill"></i>Confirmar Password</b></label>
+          <div class="input-group ">
+            <input #d="ngModel" type="password" class="form-control" name="pass2" id="pass2" [(ngModel)]="pass2"
+              required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$">
+          </div>
+          <div *ngIf="d.invalid && (d.dirty || d.touched)" class="alert-danger my-3 p-2 rounded">
+            <div *ngIf="d.errors?.required">
+              El campo es obligatorio.
+            </div>
+            <div *ngIf="d.errors?.pattern">
+              La contraseña debe contener al menos 6 caracteres con mayúsculas, minúsculas y números.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="m-4 row justify-content-center">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-guardar class="w-100" [valid]="f.valid"></app-boton-guardar>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-volver class="w-100" routerLink="/intranet/home"></app-boton-volver>
+      </div>
+
+    </div>
+
+
+  </form>
+</div>

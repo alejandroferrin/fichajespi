@@ -1,0 +1,92 @@
+<div class="bg-light pb-3 rounded mt-4 mx-4">
+
+  <h3 class="text-center selected bg-waves rounded p-3 ">Crear Nuevo Empleado</h3>
+
+  <form class="mt-4" (ngSubmit)="onRegister()" novalidate #f="ngForm">
+
+    <div class="w-75 mx-auto row justify-content-between">
+      <p>La contraseña debe tener un mínimo de 6 caracteres y estar formada por Mayusculas, Minúsculas y Números </p>
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="nombre"><b><i class="bi bi-person"></i> Nombre empleado:</b></label>
+          <div class="input-group ">
+            <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="nombreEmpleado" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="dni"><b><i class="bi bi-card-heading"></i> Dni:</b></label>
+          <div class="input-group ">
+            <input #d="ngModel" type="text" class="form-control" name="dni" id="dni" [(ngModel)]="dni" required
+              pattern="^[XYZxyz0-9]{1}[0-9]{7,7}[A-Za-z]$">
+          </div>
+          <div *ngIf="d.invalid && (d.dirty || d.touched)" class="alert-danger my-3 p-2 rounded">
+            <div *ngIf="d.errors?.required">
+              El campo dni es obligatorio.
+            </div>
+            <div *ngIf="d.errors?.pattern">
+              El dni/nie debe tener el formato correcto. Escribe el número sin guiones ni espacios.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="email"><b><i class="bi bi-envelope"></i> Email:</b></label>
+          <div class="input-group ">
+            <input #e="ngModel" type="email" class="form-control" name="email" id="email" [(ngModel)]="email" required
+              pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$">
+            <!--                 pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"> -->
+          </div>
+          <div *ngIf="e.invalid && (e.dirty || e.touched)" class="alert-danger my-3 p-2 rounded">
+            <div *ngIf="e.errors?.required">
+              El campo email es obligatorio.
+            </div>
+            <div *ngIf="e.errors?.pattern">
+              El email debe tener el formato correcto.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="numero"><b><i class="bi bi-credit-card"></i> Número tarjeta:</b></label>
+          <div class="input-group ">
+            <input type="numero" class="form-control" name="numero" id="numero" [(ngModel)]="numero" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label class="" for="rrhh"><b><i class="bi bi-hand-index-thumb"></i> Técnico RRHH:</b></label>
+          <select class="form-control " name="rrhh" id="rrhh" [(ngModel)]="rol">
+            <option value="rrhh">SI</option>
+            <option value="">NO</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="m-4 row justify-content-center">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-guardar class="w-100" [valid]="f.valid"></app-boton-guardar>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-volver class="w-100" routerLink="/intranet/empleados"></app-boton-volver>
+      </div>
+
+    </div>
+
+
+  </form>
+</div>

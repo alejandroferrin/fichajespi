@@ -1,0 +1,11 @@
+<div class="form-group small ">
+  <label class="small" for="{{id}}"><b>{{name}}:</b></label>
+  <div class="input-group input-group-sm">
+    <input type="date" class="form-control" name="{{id}}" id="{{id}}" [(ngModel)]="inputValue"
+      (ngModelChange)="inputValueChange.emit(inputValue)">
+    <span class="text-danger my-auto mx-2 pinchable" (click)="clearField()" [hidden]="!inputValue"><i
+        class="bi bi-x-circle-fill"></i></span>
+    <button class="btn btn-outline-success" (click)="listElements()" [disabled]="!inputValue"><i
+        class="bi bi-check-circle-fill"></i></button>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<!-- <app-header></app-header>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <app-menu></app-menu>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-2"> -->
+
+      <h3 class="text-center selected my-3 bg-waves rounded p-3">Calendarios Creados</h3>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+          <table class="table table-hover text-center">
+            <thead>
+              <tr>
+                <th>Año</th>
+                <th>Nombre</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr routerLink='/intranet/calendario/list/{{elemento.id}}' *ngFor="let elemento of listaElementos">
+                <td>{{elemento.year}}</td>
+                <td>{{elemento.nombre}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <br><br>
+      <div class="text-center my-5">
+        <button class="btn btn-lg bg-pink text-white shadow" routerLink="/intranet/calendario/nuevo"><i class="bi bi-plus-circle"></i> Crear Nuevo Calendario </button>
+      </div>
+
+<!--     </main>
+
+
+  </div>
+</div> -->

@@ -1,0 +1,96 @@
+/docker-compose-test/
+/docker-compose-only-db/
+
+########################################################################
+# Spring Boot
+########################################################################
+/spring-boot_fichajesPi/HELP.md
+/spring-boot_fichajesPi/target/
+/spring-boot_fichajesPi/!.mvn/wrapper/maven-wrapper.jar
+/spring-boot_fichajesPi/!**/src/main/**/target/
+/spring-boot_fichajesPi/!**/src/test/**/target/
+
+### STS ###
+/spring-boot_fichajesPi/.apt_generated
+/spring-boot_fichajesPi/.classpath
+/spring-boot_fichajesPi/.factorypath
+/spring-boot_fichajesPi/.project
+/spring-boot_fichajesPi/.settings
+/spring-boot_fichajesPi/.springBeans
+/spring-boot_fichajesPi/.sts4-cache
+
+### IntelliJ IDEA ###
+/spring-boot_fichajesPi/.idea
+/spring-boot_fichajesPi/*.iws
+/spring-boot_fichajesPi/*.iml
+/spring-boot_fichajesPi/*.ipr
+
+### NetBeans ###
+/spring-boot_fichajesPi/nbproject/private/
+/spring-boot_fichajesPi/nbbuild/
+/spring-boot_fichajesPi/dist/
+/spring-boot_fichajesPi/nbdist/
+/spring-boot_fichajesPi/.nb-gradle/
+/spring-boot_fichajesPi/build/
+/spring-boot_fichajesPi/!**/src/main/**/build/
+/spring-boot_fichajesPi/!**/src/test/**/build/
+
+### VS Code ###
+/spring-boot_fichajesPi/.vscode/
+
+########################################################################
+# Angular
+########################################################################
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/angular_fichajesPi/dist
+/angular_fichajesPi/tmp
+/angular_fichajesPi/out-tsc
+# Only exists if Bazel was run
+/angular_fichajesPi/bazel-out
+
+# dependencies
+/angular_fichajesPi/node_modules
+
+# profiling files
+/angular_fichajesPi/chrome-profiler-events*.json
+
+# IDEs and editors
+/angular_fichajesPi/.idea
+/angular_fichajesPi/.project
+/angular_fichajesPi/.classpath
+/angular_fichajesPi/.c9/
+/angular_fichajesPi/*.launch
+/angular_fichajesPi/.settings/
+/angular_fichajesPi/*.sublime-workspace
+
+# IDE - VSCode
+/angular_fichajesPi/.vscode/*
+/angular_fichajesPi/!.vscode/settings.json
+/angular_fichajesPi/!.vscode/tasks.json
+/angular_fichajesPi/!.vscode/launch.json
+/angular_fichajesPi/!.vscode/extensions.json
+/angular_fichajesPi/.history/*
+
+# misc
+/angular_fichajesPi/.sass-cache
+/angular_fichajesPi/connect.lock
+/angular_fichajesPi/coverage
+/angular_fichajesPi/libpeerconnection.log
+/angular_fichajesPi/npm-debug.log
+/angular_fichajesPi/yarn-error.log
+/angular_fichajesPi/testem.log
+/angular_fichajesPi/typings
+
+# System Files
+/angular_fichajesPi/.DS_Store
+/angular_fichajesPi/Thumbs.db
+
+########################################################################
+# Angular
+########################################################################
+/fichajesPi_desktop/target
+
+
+ 

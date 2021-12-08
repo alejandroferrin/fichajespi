@@ -1,0 +1,138 @@
+<div class="container-fluid mt-3">
+
+  <h3 class="mb-4 text-center selected bg-waves rounded p-3">Búsqueda de Permisos</h3>
+
+  <form class="my-3 mx-0 bg-light px-4 pt-2 rounded ">
+    <div class="row mb-4">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-range-dates class="w-100" [(inputValue)]="dto.diaDesde" (clear)="clearDiaDesde()"
+          (list)="listarElementos()" [name]="'Desde'" [id]="'desde'">
+        </app-input-filter-range-dates>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-range-dates class="w-100" [(inputValue)]="dto.diaHasta" (clear)="clearDiaHasta()"
+          (list)="listarElementos()" [name]="'Hasta'" [id]="'hasta'">
+        </app-input-filter-range-dates>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-range-time class="w-100" [(inputValue)]="dto.horaInicioDesde" (clear)="clearHoraInicioDesde()"
+          (list)="listarElementos()" [name]="'Hora inicio desde'" [id]="'hora-ini-desde'">
+        </app-input-filter-range-time>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-range-time class="w-100" [(inputValue)]="dto.horaInicioHasta" (clear)="clearHoraInicioHasta()"
+          (list)="listarElementos()" [name]="'Hora inicio hasta'" [id]="'hora-ini-hasta'">
+        </app-input-filter-range-time>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-range-time class="w-100" [(inputValue)]="dto.horaFinDesde" (clear)="clearHoraFinDesde()"
+          (list)="listarElementos()" [name]="'Hora fin desde'" [id]="'hora-fin-desde'">
+        </app-input-filter-range-time>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-range-time class="w-100" [(inputValue)]="dto.horaFinHasta" (clear)="clearHoraFinHasta()"
+          (list)="listarElementos()" [name]="'Hora fin hasta'" [id]="'hora-fin-hasta'">
+        </app-input-filter-range-time>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label class="small" for="en-vacaciones"><b>Estado:</b></label>
+          <select class="form-control form-control-sm" name="estado" id="estado" [(ngModel)]="dto.estado"
+            (change)="listarElementos()">
+            <option value="">Todos</option>
+            <option value="PENDIENTE">Pendiente</option>
+            <option value="APROBADO">Aprobado</option>
+            <option value="DENEGADO">Denegado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-text class="w-100" [(inputValue)]="dto.descripcion" (clear)="clearDescripcion()"
+          (list)="listarElementos()" [name]="'Descripción'" [id]="'descripcion'"></app-input-filter-text>
+      </div>
+
+      <div *ngIf="isAdmin" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-text class="w-100" [(inputValue)]="dto.usuarioNombre" (clear)="clearNombre()"
+          (list)="listarElementos()" [name]="'Nombre Emp'" [id]="'nombre'"></app-input-filter-text>
+      </div>
+
+      <div *ngIf="isAdmin" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-text class="w-100" [(inputValue)]="dto.usuarioNumero" (clear)="clearNumero()"
+          (list)="listarElementos()" [name]="'Número Emp'" [id]="'numero'"></app-input-filter-text>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-borrar-filtros class="w-100" (click)="clear()"></app-boton-borrar-filtros>
+      </div>
+    </div>
+  </form>
+
+  <table class="table table-hover text-center">
+
+    <thead>
+      <tr>
+        <th>
+          <app-th-sort [entity]="'dia'" [name]="'Día'" [asc]="asc" [order]="order" (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th>
+          <app-th-sort [entity]="'horaInicio'" [name]="'Hora Inicio'" [asc]="asc" [order]="order"
+            (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th>
+          <app-th-sort [entity]="'horaFin'" [name]="'Hora Fin'" [asc]="asc" [order]="order" (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th>
+          <app-th-sort [entity]="'estado'" [name]="'Estado'" [asc]="asc" [order]="order" (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th>
+          <app-th-sort [entity]="'descripcion'" [name]="'Descripción'" [asc]="asc" [order]="order"
+            (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th>
+          <app-th-sort [entity]="'usuarioNombreEmpleado'" [name]="'Nombre Empleado'" [asc]="asc" [order]="order"
+            (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th>
+          <app-th-sort [entity]="'usuarioNumero'" [name]="'Número Empleado'" [asc]="asc" [order]="order"
+            (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th *ngIf="isAdmin">Ver Detalle</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let elemento of listaElementos">
+        <td>{{elemento.dia}}</td>
+        <td>{{elemento.horaInicio}}</td>
+        <td>{{elemento.horaFin}}</td>
+        <td>{{elemento.estado}}</td>
+        <td>{{elemento.descripcion}}</td>
+        <td>{{elemento.usuario.nombreEmpleado}}</td>
+        <td>{{elemento.usuario.numero}}</td>
+        <td *ngIf="isAdmin" routerLink='/intranet/permisos/list/{{elemento.id}}'><div class="w-100 h-100 btn btn-outline-secondary"><i class="bi bi-eye-fill"></i></div></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-pagination [pag]="pag" (paginacion)="onPaginate($event)"></app-pagination>
+
+</div>
+
+<app-boton-descarga-csv [apiEndPoint]="'permiso/listFiltered'" [dto]="dto" [fileName]="'permisos'" [service]="service"
+  [headers]="headers">
+</app-boton-descarga-csv>

@@ -1,0 +1,107 @@
+<div class="container-fluid mt-3">
+
+  <h3 class="mb-4 text-center selected bg-waves rounded p-3 ">Aprobar Vacaciones</h3>
+
+  <form class="mt-4 mb-4 mx-5">
+
+    <div class="row mb-4">
+
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="inicio"><b>Día inicio:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" name="inicio" id="inicio" [(ngModel)]="model.inicio" disabled>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="fin"><b>Día fin:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" name="fin" id="fin" [(ngModel)]="model.fin" disabled>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="u-nombre"><b>Nombre Empleado:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" name="u-nombre" id="u-nombre"
+              [(ngModel)]="model.usuario!.nombreEmpleado" disabled>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="u-numero"><b>Número Empleado:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" name="u-numero" id="u-numero" [(ngModel)]="model.usuario!.numero"
+              disabled>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="u-email"><b>Email Empleado:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" name="u-email" id="u-email" [(ngModel)]="model.usuario!.email"
+              disabled>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="u-email"><b>Estado:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" name="estado" id="estado" [(ngModel)]="model.estado" disabled>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label class="small" for="en-vacaciones"><b>Consumidas:</b></label>
+          <select class="form-control form-control-sm" name="agotado" id="agotado" [(ngModel)]="model.consumidas"
+            disabled>
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+
+  <div class="row d-flex flex-row justify-content-center">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+      <button class="btn btn-sm btn-danger w-100" (click)="onDeny()"> Denegar </button>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+      <button class="btn btn-sm btn-success w-100" (click)="onApprove()"> Aprobar </button>
+    </div>
+  </div>
+
+  <div class="row d-flex flex-row justify-content-end mx-5">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+      <app-boton-volver class="w-100" routerLink="/intranet/vacaciones"></app-boton-volver>
+    </div>
+  </div>
+
+  <div class="w-100 text-center mt-5 mb-5">
+    <button class="mx-auto btn btn-outline-danger btn-sm " (click)="onDelete()"> <i class="bi bi-trash"></i>
+      Eliminar Vacaciones
+    </button>
+  </div>
+
+
+</div>

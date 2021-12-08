@@ -1,0 +1,28 @@
+<div>
+  <div class="text-center">
+    <h4> {{displayMonth}} </h4>
+  </div>
+</div>
+
+<table class='calendar-table' *ngIf="calendar">
+  <thead class="light-blue">
+    <tr class="text-center">
+      <th>L</th>
+      <th>M</th>
+      <th>X</th>
+      <th>J</th>
+      <th>V</th>
+      <th>S</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let w of calendar | chunk: 7; let i = index">
+      <td class="calendar-day text-center" [ngClass]="{'holyday':d.isWeekend,'not-this-month': !d.isThisMonth, 'bg-blue':d.selected }"
+        *ngFor="let d of w; let j = index" (click)="addDay(d)">
+        <div class="calendar-day-header" >{{d.date.getDate()}}
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

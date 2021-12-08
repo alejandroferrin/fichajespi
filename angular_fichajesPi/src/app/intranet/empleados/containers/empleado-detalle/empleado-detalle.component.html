@@ -1,0 +1,153 @@
+
+<div class="container-fluid mt-3">
+
+  <h3 class="mb-4 text-center selected w-100">Consultar</h3>
+
+  <div class="row mb-4 mx-5">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+      <a class="nav-link w-100 text-center" routerLink="/intranet/fichajes/list/empleado/{{model.numero}}">
+        <i class="bi bi-watch feather"></i>
+        Fichajes
+      </a>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+      <a class="nav-link w-100 text-center" routerLink="/intranet/incidencias/list/empleado/{{model.numero}}">
+        <i class="bi bi-exclamation-diamond feather"></i>
+        Incidencias
+      </a>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+      <a class="nav-link w-100 text-center" routerLink="/intranet/permisos/list/empleado/{{model.numero}}">
+        <i class="bi bi-file-earmark-text feather"></i>
+        Permisos
+      </a>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+      <a class="nav-link w-100 text-center" routerLink="/intranet/vacaciones/list/empleado/{{model.numero}}">
+        <i class="bi bi-cup-straw feather"></i>
+        Vacaciones
+      </a>
+    </div>
+  </div>
+
+  <h3 class="mb-4 text-center selected bg-waves rounded p-3 ">Editar Empleado</h3>
+
+  <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="mt-4 mb-4 mx-5">
+
+    <div class="row mb-4">
+
+      <!--           <div class="col d-flex align-items-end">
+            <h2 class="m-0 selected">Editar Empleado</h2>
+          </div> -->
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="nombre"><b>Nombre:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="model.nombreEmpleado"
+              required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="numero"><b>Número:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" name="numero" id="numero" [(ngModel)]="model.numero" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="email"><b>Email:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="email" class="form-control" name="email" id="email" [(ngModel)]="model.email" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="dni"><b>DNI:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" name="dni" id="dni" [(ngModel)]="model.dni" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="dias"><b>Días de vacaciones:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="number" class="form-control" name="dias" id="dias" [(ngModel)]="model.diasVacaciones">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="horas"><b>Horas generadas:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="number" class="form-control" name="horas" id="horas" [(ngModel)]="model.horasGeneradas">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="en-vacaciones"><b>De Vacaciones:</b></label>
+          <select class="form-control form-control-sm" name="en-vacaciones" id="en-vacaciones"
+            [(ngModel)]="model.enVacaciones">
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="de-baja"><b>De Baja:</b></label>
+          <select class="form-control form-control-sm" name="de-baja" id="de-baja" [(ngModel)]="model.deBaja">
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="working"><b>Trabajando:</b></label>
+          <select class="form-control form-control-sm" name="working" id="working" [(ngModel)]="model.working">
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex flex-row justify-content-end">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-guardar class="w-100" [valid]="f.valid"></app-boton-guardar>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-volver class="w-100" routerLink="/intranet/empleados"></app-boton-volver>
+      </div>
+
+    </div>
+  </form>
+
+
+
+  <div class="w-100 text-center mt-5 mb-5">
+    <button class="mx-auto btn btn-outline-danger btn-sm " (click)="onDelete()"> <i class="bi bi-trash"></i>
+      Eliminar empleado
+    </button>
+  </div>
+
+
+</div>
+
+

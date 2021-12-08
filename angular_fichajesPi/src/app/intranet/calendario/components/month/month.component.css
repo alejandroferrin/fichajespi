@@ -1,0 +1,67 @@
+.calendar-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  border: 1px solid #dee2e6;
+  background-color: #fff;
+  font-size: smaller;
+}
+
+.calendar-table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+  width: 14.2%;
+}
+
+.calendar-table td,
+.calendar-table th {
+  border: 1px solid #dee2e6;
+}
+
+.calendar-table td,
+.calendar-table th {
+  padding: 0.3rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.calendar-day {
+/*   height: 12vh; */
+  max-height: 12vh;
+  cursor: pointer;
+}
+
+/* .calendar-items-wrapper {
+  margin-left: -10px;
+  margin-right: -10px;
+  overflow-y: auto;
+  max-height: calc(100% - 20px);
+} */
+
+/* .calendar-day.past-date {
+  background-color: rgb(248, 248, 248);
+} */
+
+.calendar-day:hover {
+  background-color: rgb(206, 206, 206);
+}
+
+/* .blue-date {
+  color: rgb(16, 110, 190);
+} */
+
+.not-this-month {
+  color: white !important;
+  background-color: white !important;
+  cursor: auto;
+}
+
+.not-this-month:hover {
+  background-color: white;
+}
+
+.holyday{
+  color:white;
+  background-color: #d21757;
+}

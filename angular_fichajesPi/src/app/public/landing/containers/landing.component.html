@@ -1,0 +1,38 @@
+<div class="landing-waves d-flex flex-column justify-content-center">
+  <div class="container col-xl-10 col-xxl-8 mx-auto">
+    <div class="row align-items-center g-lg-5">
+      <div class="col-lg-7 mx-auto text-center">
+        <img src="../../assets/images/fp_logo_texto-2.svg" alt="" width="600">
+        <p class="fs-4 text-dark">Plataforma de fichajes pensada para funcionar sobre RaspberryPi para
+          continuar <b>inicia
+            sesión</b> como
+          usuario o como responsable de rrhh.</p>
+      </div>
+    </div>
+    <div class="row align-items-center g-lg-5 mt-3">
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Número de empleado" required
+              [(ngModel)]="numero" name="numero">
+            <label for="floatingInput">Número empleado</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required
+              [(ngModel)]="password" name="password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <button class="w-100 btn btn-lg bg-pink text-white" type="submit" [disabled]="!f.valid">Iniciar
+            Sesión</button>
+
+        </form>
+
+        <div *ngIf="f.submitted && errMsg!=''" class="alert alert-danger my-3 text-center">{{errMsg}} </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

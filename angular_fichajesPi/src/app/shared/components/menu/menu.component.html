@@ -1,0 +1,91 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse bg-waves">
+  <div class="position-sticky">
+
+    <ul class="nav flex-column">
+      <li class="nav-item shadow bg-blue py-1">
+        <a class="nav-link text-white" routerLinkActive="" routerLink="/intranet/home">
+          <i class="bi bi-house-door-fill feather text-white"></i>
+          Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/intranet/home/fichajes/{{numero}}">
+          <i class="bi bi-watch feather"></i>
+          Fichajes
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/intranet/home/permisos/{{numero}}">
+          <i class="bi bi-file-earmark-text feather"></i>
+          Permisos
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/intranet/home/vacaciones/{{numero}}">
+          <i class="bi bi-cup-straw feather"></i>
+          Vacaciones
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/intranet/home/cuenta">
+          <i class="bi bi-file-person-fill feather"></i>
+          Cuenta
+        </a>
+      </li>
+    </ul>
+
+    <div *ngIf="isAdmin">
+      <h6
+        class="sidebar-heading d-flex justify-content-between align-items-center p-3 mt-4 mb-1 text-white shadow bg-blue">
+        <span class="fs-6">Herramientas RRHH</span>
+      </h6>
+      <ul class="nav flex-column mb-2">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/intranet/empleados/list">
+            <i class="bi bi-people feather"></i>
+            Empleados
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/intranet/incidencias/list">
+            <i class="bi bi-exclamation-diamond feather"></i>
+            Incidencias
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/intranet/fichajes/list">
+            <i class="bi bi-watch feather"></i>
+            Fichajes
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/intranet/permisos/list">
+            <i class="bi bi-file-earmark-text feather"></i>
+            Permisos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/intranet/vacaciones/list">
+            <i class="bi bi-cup-straw feather"></i>
+            Vacaciones
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/intranet/register">
+            <i class="bi bi-plus-circle-fill feather"></i>
+            Alta usuario
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/intranet/calendario/list">
+            <i class="bi bi-calendar-date feather"></i>
+            Calendarios
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+
+</nav>

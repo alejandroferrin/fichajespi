@@ -1,0 +1,87 @@
+<div class="d-flex justify-content-between align-items-center my-4">
+  <div class="fs-5"><i *ngIf="!pag!.isFirst" class="bi bi-caret-left-square pinchable" (click)="rewind()"></i></div>
+  <div>
+    <span *ngFor="let p of pag!.totalPages; let i=index; let isLast=last; let isFirst=first">
+      <!-- ######## Comprobamos si el número total de paginas es menor que el limite  ################             -->
+      <span *ngIf="pag!.totalPages.length<pag!.listPagesLimits+5">
+        <span class="pinchable" (click)="setPage(i)" [ngClass]="{'selected':i===pag!.page}">
+          {{i+1}}&nbsp;&nbsp;
+        </span>
+      </span>
+      <!-- ######## Comprobamos si el número total de paginas es mayor que el limite  ################             -->
+      <span *ngIf="pag!.totalPages.length>=pag!.listPagesLimits+5">
+        <!--Vemos si estamos en las primeras páginas ----------------------------------------- -->
+        <span *ngIf="pag!.page<=pag!.listPagesLimits">
+          <!--Pintamos los números hasta el límite-->
+          <span *ngIf="i<=pag!.listPagesLimits" class="pinchable" (click)="setPage(i)"
+            [ngClass]="{'selected':i===pag!.page}">
+            {{i+1}}&nbsp;&nbsp;
+          </span>
+          <!--Pintamos ... y la última página-->
+          <span *ngIf="isLast">
+            <span>
+              ...
+            </span>
+            <span class="pinchable" (click)="setPage(i)" [ngClass]="{'selected':i===pag!.page}">
+              {{i+1}}&nbsp;&nbsp;
+            </span>
+          </span>
+        </span>
+        <!--Vemos si estamos en páginas intermedias ----------------------------------------- -->
+        <span *ngIf="pag!.page>pag!.listPagesLimits && pag!.page<pag!.totalPages.length-pag!.listPagesLimits">
+          <!--Pintamos la primera página-->
+          <span *ngIf="isFirst">
+            <span class="pinchable" (click)="setPage(i)" [ngClass]="{'selected':i===pag!.page}">
+              {{i+1}}
+            </span>
+            <span>...&nbsp;&nbsp;</span>
+          </span>
+          <!--Pintamos los números de la pagina +/- limite-->
+          <span *ngIf="i<pag!.page+pag!.listPagesLimits && i>pag!.page-pag!.listPagesLimits" class="pinchable"
+            (click)="setPage(i)" [ngClass]="{'selected':i===pag!.page}">
+            {{i+1}}&nbsp;&nbsp;
+          </span>
+          <!--Pintamos ... y la última página-->
+          <span *ngIf="isLast">
+            <span>...</span>
+            <span class="pinchable" (click)="setPage(i)" [ngClass]="{'selected':i===pag!.page}">
+              {{i+1}}&nbsp;&nbsp;
+            </span>
+          </span>
+        </span>
+        <!--Vemos si estamos en las últimas páginas -----------------------------------------  -->
+        <span *ngIf="pag!.page>=pag!.totalPages.length-pag!.listPagesLimits">
+          <!--Pintamos la primera página-->
+          <span *ngIf="isFirst">
+            <span class="pinchable" (click)="setPage(i)" [ngClass]="{'selected':i===pag!.page}">
+              {{i+1}}
+            </span>
+            <span>...&nbsp;&nbsp;</span>
+          </span>
+          <!--Pintamos los últimos números-->
+          <span *ngIf="i>=pag!.totalPages.length-pag!.listPagesLimits" class="pinchable" (click)="setPage(i)"
+            [ngClass]="{'selected':i===pag!.page}">
+            {{i+1}}&nbsp;&nbsp;
+          </span>
+        </span>
+      </span>
+    </span>
+  </div>
+  <div class="fs-5"><i *ngIf="!pag!.isLast" class="bi bi-caret-right-square pinchable" (click)="forward()"></i></div>
+</div>
+
+
+<div class="d-flex justify-content-end">
+  <div class="text-end ">
+    <div class="small">
+      <form #f="ngForm" (ngSubmit)="setSize(f.value.size)" novalidate>
+        <div class="form-group">
+          <label class="text-end mx-3" for="pageSize">Elementos por página
+            <span class="selected" *ngIf="pag!.size==pag!.sizeLimit"> - El límite es {{pag!.sizeLimit}}</span>
+          </label>
+          <input type="" name="size" id="pageSize" class="form-control-sm text-end" placeholder="10" ngModel required>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

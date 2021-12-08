@@ -1,0 +1,25 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <h4 class="bg-waves rounded shadow px-4 py-2 mb-3 text-dark">{{tableName}}</h4>
+  <table class="table table-hover text-center">
+
+    <thead>
+      <tr>
+        <th>
+          {{columnName}}
+        </th>
+        <th>
+          Usuario
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let elemento of listaElementos">
+        <td>{{elemento.cantidad}}</td>
+        <td routerLink='/intranet/{{route}}{{elemento.id}}'>
+          <div class="w-100 h-100 btn btn-outline-secondary">{{elemento.nombreEmpleado}}</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

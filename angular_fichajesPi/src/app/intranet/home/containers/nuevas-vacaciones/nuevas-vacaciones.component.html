@@ -1,0 +1,44 @@
+<div class="bg-light pb-3 rounded mt-4 mx-4">
+
+  <h3 class="text-center selected bg-waves rounded p-3 ">Crear Petición de Vacaciones</h3>
+
+  <form class="mt-4" (ngSubmit)="onRegister()" novalidate #f="ngForm">
+
+    <div class="w-75 mx-auto row justify-content-between">
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="inicio"><b><i class="bi bi-person"></i>Día Inicio:</b></label>
+          <div class="input-group ">
+            <input type="date" class="form-control" name="inicio" id="inicio" [(ngModel)]="inicio" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="fin"><b><i class="bi bi-person"></i>Día Fin:</b></label>
+          <div class="input-group ">
+            <input type="date" class="form-control" name="fin" id="fin" [(ngModel)]="fin" required>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="m-4 row justify-content-center">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-guardar class="w-100" [valid]="f.valid"></app-boton-guardar>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-volver class="w-100" routerLink="/intranet/home/vacaciones/{{numeroUsuario}}"></app-boton-volver>
+      </div>
+
+    </div>
+
+
+  </form>
+</div>

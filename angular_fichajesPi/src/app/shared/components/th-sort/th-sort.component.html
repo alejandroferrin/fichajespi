@@ -1,0 +1,5 @@
+<div scope="col" (click)="setOrder()">{{name}}
+  <i class="bi bi-sort-down-alt filter" *ngIf="asc && order===entity"></i>
+  <i class="bi bi-sort-down filter" *ngIf="!asc && order===entity"></i>
+  <i class="bi bi-filter filter" *ngIf="order!==entity"></i>
+</div>

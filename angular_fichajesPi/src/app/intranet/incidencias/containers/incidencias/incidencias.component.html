@@ -1,0 +1,105 @@
+<div class="w-100 text-center">
+  <button class="btn btn-sm bg-pink text-white px-3 py-1 mb-2 shadow fs-6 fw-bold"
+    routerLink='/intranet/incidencias/statistics'>Estadísticas <i class="bi bi-graph-down"></i></button>
+</div>
+
+
+<div class="container-fluid mt-3">
+
+  <h3 class="mb-4 text-center selected bg-waves rounded p-3 ">Búsqueda de Incidencias</h3>
+
+  <form class="my-3 mx-0 bg-light px-4 pt-2 rounded ">
+    <div class="row mb-4">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-range-dates class="w-100" [(inputValue)]="dto.diaDesde" (clear)="clearDiaDesde()"
+          (list)="listarElementos()" [name]="'Desde'" [id]="'desde'">
+        </app-input-filter-range-dates>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-range-dates class="w-100" [(inputValue)]="dto.diaHasta" (clear)="clearDiaHasta()"
+          (list)="listarElementos()" [name]="'Hasta'" [id]="'hasta'">
+        </app-input-filter-range-dates>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-text class="w-100" [(inputValue)]="dto.usuarioNombre" (clear)="clearNombre()"
+          (list)="listarElementos()" [name]="'Nombre Emp'" [id]="'nombre'"></app-input-filter-text>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-input-filter-text class="w-100" [(inputValue)]="dto.usuarioNumero" (clear)="clearNumero()"
+          (list)="listarElementos()" [name]="'Número Emp'" [id]="'numero'"></app-input-filter-text>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label class="small" for="resuelta"><b>Resuelta:</b></label>
+          <select class="form-control form-control-sm" name="resuelta" id="resuelta" [(ngModel)]="dto.resuelta"
+            (change)="listarElementos()">
+            <option value="">Todos</option>
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-borrar-filtros class="w-100" (click)="clear()"></app-boton-borrar-filtros>
+      </div>
+    </div>
+  </form>
+
+  <table class="table table-hover text-center">
+
+    <thead>
+      <tr>
+        <th>
+          <app-th-sort [entity]="'dia'" [name]="'Día'" [asc]="asc" [order]="order" (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th>
+          <app-th-sort [entity]="'resuelta'" [name]="'Resuelta'" [asc]="asc" [order]="order" (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th>
+          <app-th-sort [entity]="'resumen'" [name]="'Descripción'" [asc]="asc" [order]="order"
+            (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th>
+          <app-th-sort [entity]="'usuarioNombreEmpleado'" [name]="'Nombre Empleado'" [asc]="asc" [order]="order"
+            (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th>
+          <app-th-sort [entity]="'usuarioNumero'" [name]="'Número Empleado'" [asc]="asc" [order]="order"
+            (sort)="setOrder($event)">
+          </app-th-sort>
+        </th>
+        <th *ngIf="isAdmin">Ver Detalle</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let elemento of listaElementos">
+        <td>{{elemento.dia}}</td>
+        <td *ngIf="elemento.resuelta">Si</td>
+        <td *ngIf="!elemento.resuelta">No</td>
+        <td>{{elemento.resumen}}</td>
+        <td>{{elemento.usuario.nombreEmpleado}}</td>
+        <td>{{elemento.usuario.numero}}</td>
+        <td *ngIf="isAdmin" routerLink='/intranet/incidencias/list/{{elemento.id}}'>
+          <div class="w-100 h-100 btn btn-outline-secondary"><i class="bi bi-eye-fill"></i></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-pagination [pag]="pag" (paginacion)="onPaginate($event)"></app-pagination>
+
+</div>
+
+<app-boton-descarga-csv [apiEndPoint]="'incidencia/listFiltered'" [dto]="dto" [fileName]="'incidencias'"
+  [service]="service" [headers]="headers"></app-boton-descarga-csv>

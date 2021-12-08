@@ -1,0 +1,50 @@
+{
+  "name": "angular-fichajes-pi",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^13.0.3",
+    "@angular/common": "~13.0.3",
+    "@angular/compiler": "~13.0.3",
+    "@angular/core": "~13.0.3",
+    "@angular/forms": "~13.0.3",
+    "@angular/platform-browser": "~13.0.3",
+    "@angular/platform-browser-dynamic": "~13.0.3",
+    "@angular/router": "~13.0.3",
+    "@costlydeveloper/ngx-awesome-popup": "^1.1.0",
+    "angular-csv-ext": "^1.0.5",
+    "bootstrap": "^5.0.0-beta3",
+    "bootstrap-icons": "^1.5.0",
+    "chart.js": "^3.6.0",
+    "json-unpacker": "^1.1.4",
+    "ngx-spec": "^2.1.4",
+    "primeng": "^12.2.2",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.1.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "^13.0.0",
+    "@angular-devkit/build-angular": "~13.0.4",
+    "@angular/cli": "~13.0.4",
+    "@angular/compiler-cli": "~13.0.3",
+    "@types/d3-selection": "^3.0.1",
+    "@types/jasmine": "~3.6.0",
+    "@types/jquery": "^3.5.6",
+    "@types/node": "^12.11.1",
+    "jasmine-core": "~3.7.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "typescript": "~4.4.4"
+  }
+}

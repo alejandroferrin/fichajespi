@@ -1,0 +1,57 @@
+version: '3.1'
+
+services:
+  db:
+    container_name: fichajespi_db
+    image: 'linuxserver/mariadb:10.5.13'
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=fichajesroot #Cambiar password si se desea
+      - TZ=Europe/Madrid
+      - MYSQL_DATABASE=db_fichajespi
+      - MYSQL_USER=fichajes #Cambiar usuario si se desea
+      - MYSQL_PASSWORD=fichajes #Cambiar password si se desea
+    restart: always
+
+  backendserver:
+    container_name: fichajespi_back
+    build: ./spring-boot_fichajesPi/
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/db_fichajespi
+      - SPRING_DATASOURCE_USERNAME=fichajes #Usar mismo usuario que la base de datos
+      - SPRING_DATASOURCE_PASSWORD=fichajes #Usar misma contraseña que la base de datos
+      - CLIENT_URL=http://$IP
+      - SPRING_MAIL_HOST=smtp.mailtrap.io #poner dominio del servidor smtp
+      - SPRING_MAIL_PORT=2525 #poner puerto del servidor smtp
+      - SPRING_MAIL_USERNAME=your-user-name #Nombre usuario servidor correos
+      - SPRING_MAIL_PASSWORD=your-password #Password servidor correos
+      - JWT_SECRET=your-secret-key #Secret key for JWT tokens
+    ports:
+      - "8080:8080"
+    links:
+      - "db"
+    depends_on:
+      - "db"
+    restart: always
+
+  frontend:
+    container_name: fichajespi_front
+    build:
+      context: ./angular_fichajesPi/
+      args:
+        - apiURL=http://$IP:8080
+    ports:
+      - "80:80"
+    restart: always
+
+  phpmyadmin:
+    container_name: fichajespi_dbadmin
+    image: phpmyadmin
+    ports:
+      - 81:80
+    environment:
+      - PMA_ARBITRARY=1
+    restart: always
+
+

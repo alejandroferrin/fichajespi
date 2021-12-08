@@ -1,0 +1,13 @@
+<div class="d-flex flex-column justify-content-center align-items-center mt-4 ">
+  <img class="" src="../../assets/images/fichajespi_logo_mano.svg" alt="" height="200">
+  <button class="btn bg-pink text-white px-5 py-3 m-5 shadow fs-5 fw-bold" (click)="fichar()"><i
+      class="bi bi-watch feather"></i> Fichar</button>
+  <div class="bg-light rounded p-4">
+    <div class="text-center my-3"><b>Número Tarjeta: {{model.numero}}</b></div>
+    <div class="text-center my-3"><b>Último fichaje: </b>{{model.ultimoFichaje}}</div>
+    <div class="text-center my-3" *ngIf="model.working"><b>Estado: </b>Trabajando</div>
+    <div class="text-center my-3" *ngIf="!model.working"><b>Estado: </b>Fuera del trabajo</div>
+    <div class="text-center my-3"><b>Vacaciones restantes: </b>{{model.diasVacaciones}}</div>
+    <div class="text-center my-3"><b>Horas generadas: </b>{{model.horasGeneradas}}</div>
+  </div>
+</div>

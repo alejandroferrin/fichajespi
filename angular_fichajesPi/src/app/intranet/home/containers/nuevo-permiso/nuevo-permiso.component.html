@@ -1,0 +1,64 @@
+<div class="bg-light pb-3 rounded mt-4 mx-4">
+
+  <h3 class="text-center selected bg-waves rounded p-3 ">Crear Petición de Permiso</h3>
+
+  <form class="mt-4" (ngSubmit)="onRegister()" novalidate #f="ngForm">
+
+    <div class="w-75 mx-auto row justify-content-between">
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="dia"><b><i class="bi bi-person"></i>Día:</b></label>
+          <div class="input-group ">
+            <input type="date" class="form-control" name="dia" id="dia" [(ngModel)]="dia" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="hora-ini"><b><i class="bi bi-person"></i>Hora inicio:</b></label>
+          <div class="input-group ">
+            <input type="time" class="form-control" name="hora-ini" id="hora-ini" [(ngModel)]="horaInicio" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="hora-fin"><b><i class="bi bi-person"></i>Hora fin:</b></label>
+          <div class="input-group ">
+            <input type="time" class="form-control" name="hora-fin" id="hora-fin" [(ngModel)]="horaFin" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group w-100">
+          <label for="descripcion"><b><i class="bi bi-person"></i>Descripción:</b></label>
+          <div class="input-group ">
+            <input type="text" class="form-control" name="descripcion" id="descripcion" [(ngModel)]="descripcion"
+              required>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="m-4 row justify-content-center">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-guardar class="w-100" [valid]="f.valid"></app-boton-guardar>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-volver class="w-100" routerLink="/intranet/home/permisos/{{numeroUsuario}}"></app-boton-volver>
+      </div>
+
+    </div>
+
+
+  </form>
+</div>

@@ -1,0 +1,235 @@
+<div class="container-fluid">
+
+  <h3 class="my-3 text-center selected bg-waves rounded p-3 ">Editar Calendario</h3>
+
+
+  <form novalidate #formFilter="ngForm" class="mt-4 mb-4 mx-5 bg-light p-4 rounded">
+
+    <div class="row px-4 justify-content-start">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-end mb-3">
+        <div class="form-group small w-100">
+          <h4 class="selected">
+            Filtrar por Días
+          </h4>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3  d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="diaFecha"><b>Día mes:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="number" class="form-control" name="diaFecha" id="diaFecha" [(ngModel)]="diaFecha">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3  d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="diaSemana"><b>Día semana:</b></label>
+          <select class="form-control form-control-sm" name="diaSemana" id="diaSemana" [(ngModel)]="diaSemana">
+            <option></option>
+            <option value="1">Lunes</option>
+            <option value="2">Martes</option>
+            <option value="3">Miércoles</option>
+            <option value="4">Jueves</option>
+            <option value="5">Viernes</option>
+            <option value="6">Sábado</option>
+            <option value="0">Domingo</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="mes"><b>Mes:</b></label>
+          <select class="form-control form-control-sm" name="mes" id="mes" [(ngModel)]="mes">
+            <option></option>
+            <option value="0">Enero</option>
+            <option value="1">Febrero</option>
+            <option value="2">Marzo</option>
+            <option value="3">Abril</option>
+            <option value="4">Mayo</option>
+            <option value="5">Junio</option>
+            <option value="6">Julio</option>
+            <option value="7">Agosto</option>
+            <option value="8">Septiembre</option>
+            <option value="9">Octubre</option>
+            <option value="10">Noviembre</option>
+            <option value="11">Diciembre</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </form>
+
+
+  <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="mt-4 mb-4 mx-5">
+
+    <div class="row mb-4 justify-content-center">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="year"><b>Año:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="number" class="form-control" name="year" id="year" [(ngModel)]="model.year" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="nombre"><b>Nombre:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="model.nombre" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="minMas"><b> Minutos permitidos para entrar más tarde:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="number" class="form-control" name="minMas" id="minMas" [(ngModel)]="model.minutosMasEntrada"
+              required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="minMenos"><b> Minutos permitidos para entrar antes:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="number" class="form-control" name="minMenos" id="minMenos"
+              [(ngModel)]="model.minutosMenosEntrada" required>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label class="small" for="active"><b>Activo:</b></label>
+          <select class="form-control form-control-sm" name="active" id="active" [(ngModel)]="model.active">
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-guardar class="w-100" [valid]="f.valid"></app-boton-guardar>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-volver class="w-100" routerLink="/intranet/calendario"></app-boton-volver>
+      </div>
+
+    </div>
+
+    <!--         <div class="row justify-content-center mb-2">
+          <div class="col text-center light-blue"><strong>Día</strong></div>
+          <div class="col text-center light-blue"><strong>Hora entrada</strong></div>
+          <div class="col text-center light-blue"><strong>Hora salida</strong></div>
+          <div class="col text-center light-blue"><strong></strong></div>
+        </div> -->
+
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Día Semana</th>
+          <th>Hora entrada</th>
+          <th>Hora salida</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dia of model.dias | calendarFilter:formFilter.value; let i=index;">
+
+          <td>
+            <input type="text" class="form-control" name="d-{{i}}" id="d" [(ngModel)]="dia.dia" required>
+          </td>
+
+          <td>
+            {{diasSemana[dia.diaSemana!]}}
+          </td>
+
+          <td>
+            <input type="time" class="form-control" name="horaEntrada-{{i}}" id="horaEntrada"
+              [(ngModel)]="dia.horaInicio" required>
+          </td>
+
+          <td>
+            <input type="time" class="form-control" name="horaSalida-{{i}}" id="horaSalida" [(ngModel)]="dia.horaFin"
+              required>
+          </td>
+
+          <td (click)="onDeleteDay(dia.id!)">
+            <i class="bi bi-trash text-danger"></i>
+          </td>
+
+        </tr>
+        <tr>
+          <td colspan="4" class="txt-blue pinchable" routerLink="/intranet/calendario/nuevo/dia/{{id}}"><i
+              class="fs-4 bi bi-plus-circle"></i></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+
+    <!--         <div class="row justify-content-center mb-1" *ngFor="let dia of model.dias; let i=index;">
+
+          <div class="col">
+            <div class="form-group small w-100">
+              <div class="input-group input-group-sm">
+                <input type="date" class="form-control" name="d-{{i}}" id="d" [(ngModel)]="model.dias[i].dia" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group small w-100">
+              <div class="input-group input-group-sm">
+                <input type="time" class="form-control" name="horaEntrada-{{i}}" id="horaEntrada"
+                  [(ngModel)]="dia.horaInicio" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group small w-100">
+              <div class="input-group input-group-sm">
+                <input type="time" class="form-control" name="horaSalida-{{i}}" id="horaSalida"
+                  [(ngModel)]="dia.horaFin" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group small w-100">
+              <div class="input-group input-group-sm text-center">
+                <i class="bi bi-trash"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+ -->
+
+  </form>
+
+  <div class="w-100 text-center mb-5">
+    <button class="mx-auto btn btn-outline-danger btn-sm " (click)="onDelete()"> <i class="bi bi-trash"></i>
+      Eliminar Calendario
+    </button>
+  </div>
+
+</div>

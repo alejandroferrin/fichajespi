@@ -1,0 +1,36 @@
+<div class="d-flex flex-column align-items-center justify-content-center mt-5">
+  <app-chart class="col-8 col-sm-6 mb-5" [service]="service" [serieName]="'Inc.'"
+    [chartTitle]="'Evolución Nº Incidencias últimos 12 meses'"></app-chart>
+
+  <div class="d-flex mb-5 align-items-start justify-content-around w-100 bg-light p-5 rounded-3">
+
+    <app-statics-table class="" [service]="service" [tableName]="'Ranking Usuarios'"
+      [columnName]="'Nº Incidencias'" [route]="'incidencias/list/empleado/'"></app-statics-table>
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <h4 class="bg-waves rounded shadow px-4 py-2 mb-3 text-dark">Ranking Incidencias más comunes</h4>
+      <table class="table table-hover text-center">
+
+        <thead>
+          <tr>
+            <th>
+              Número
+            </th>
+            <th>
+              Descripción
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let elemento of listaElementos">
+            <td>{{elemento.cantidad}}</td>
+            <td>{{elemento.resumen}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

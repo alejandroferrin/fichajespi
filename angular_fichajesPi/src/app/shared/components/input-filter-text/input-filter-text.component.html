@@ -1,0 +1,9 @@
+<div class="form-group small ">
+  <label class="small" for="{{id}}"><b>{{name}}:</b></label>
+  <div class="input-group input-group-sm">
+    <input type="text" class="form-control" name="{{id}}" id="{{id}}" [(ngModel)]="inputValue"
+      (ngModelChange)="inputValueChange.emit(inputValue)" (input)="listElements()">
+    <span class="text-danger my-auto mx-2 pinchable" (click)="clearField()" [hidden]="!inputValue"><i
+        class="bi bi-x-circle-fill"></i></span>
+  </div>
+</div>

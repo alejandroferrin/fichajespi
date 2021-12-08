@@ -1,0 +1,71 @@
+<!-- <app-header></app-header>
+
+<div class="container-fluid">
+
+  <app-menu></app-menu>
+
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-2"> -->
+
+<!-- ######################NUEVO DIA################################### -->
+
+
+<div class="container-fluid">
+
+
+  <h3 class="my-3 text-center selected w-100">Añadir día al calendario</h3>
+
+  <form class="mt-4" (ngSubmit)="onSave()" novalidate #f="ngForm">
+
+    <div class="row mb-4 justify-content-end">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="dia"><b>Fecha:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="date" class="form-control" name="dia" id="dia" [(ngModel)]="model.dia" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="hEntrada"><b> Hora entrada:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="time" class="form-control" name="horaEntrada" id="horaEntrada" [(ngModel)]="model.horaInicio"
+              required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="hSalida"><b> Hora salida:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="time" class="form-control" name="horaSalida" id="horaSalida" [(ngModel)]="model.horaFin"
+              required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-guardar class="w-100" [valid]="f.valid"></app-boton-guardar>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-volver class="w-100" routerLink="/intranet/calendario/list/{{id}}"></app-boton-volver>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
+
+
+<!-- ######################NUEVO DIA################################### -->
+
+<!-- 
+  </main>
+
+
+</div> -->

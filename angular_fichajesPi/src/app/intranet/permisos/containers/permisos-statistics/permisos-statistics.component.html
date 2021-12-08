@@ -1,0 +1,12 @@
+<div class="d-flex flex-column align-items-center justify-content-center mt-5">
+  <app-chart class="col-8 col-sm-6 mb-5" [service]="service" [serieName]="'Horas'"
+    [chartTitle]="'Evolución Horas de Permisos últimos 12 meses'"></app-chart>
+
+  <div class="d-flex mb-5 align-items-start justify-content-around w-100 bg-light p-5 rounded-3">
+
+    <app-statics-table class="" [service]="service" [tableName]="'Ranking Usuarios'" [columnName]="'Horas Permisos'"
+      [route]="'permisos/list/empleado/'"></app-statics-table>
+
+  </div>
+
+</div>

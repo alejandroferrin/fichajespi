@@ -1,0 +1,90 @@
+<div class="mx-5 mt-5">
+
+  <h2 class="text-center selected mb-5 bg-waves rounded p-3 ">Nuevo calendario</h2>
+  <form class="mt-4" (ngSubmit)="onSave()" novalidate #f="ngForm">
+
+    <div class="row justify-content-end">
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="year"><b> Año:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="number" class="form-control" name="year" id="year" [(ngModel)]="dto.year" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="nombre"><b> Nombre:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="dto.nombre" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="minMas"><b> Minutos permitidos para entrar más tarde:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="number" class="form-control" name="minMas" id="minMas" [(ngModel)]="dto.minutosMasEntrada"
+              required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="minMenos"><b> Minutos permitidos para entrar antes:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="number" class="form-control" name="minMenos" id="minMenos"
+              [(ngModel)]="dto.minutosMenosEntrada" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="hEntrada"><b> Hora entrada:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="time" class="form-control" name="horaEntrada" id="horaEntrada" [(ngModel)]="horaInicio"
+              required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <div class="form-group small w-100">
+          <label for="hSalida"><b> Hora salida:</b></label>
+          <div class="input-group input-group-sm">
+            <input type="time" class="form-control" name="horaSalida" id="horaSalida" [(ngModel)]="horaFin" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-guardar class="w-100" [valid]="f.valid"></app-boton-guardar>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex align-items-end justify-content-end mb-3">
+        <app-boton-volver class="w-100" routerLink="/intranet/calendario"></app-boton-volver>
+      </div>
+
+    </div>
+
+  </form>
+
+
+  <div class="w-100 mb-4 mt-4">
+    <h2 class="mx-auto text-center rounded light-blue p-2 w-25">Calendario {{dto.year}}</h2>
+    <p class="w-100 text-center small">Selecciona los días laborables pinchando en el calendario</p>
+  </div>
+  <div class="row mb-4">
+
+    <div class="col-12 col-md-12 col-lg-6 col-xl-4" *ngFor="let month of monthsOfYear">
+      <app-month [year]="dto.year" [month]="month" [horaInicio]="horaInicio" [horaFin]="horaFin"
+        [calendarioNombre]="dto.nombre" (added)="onAdded($event)"></app-month>
+    </div>
+
+  </div>
+</div>
