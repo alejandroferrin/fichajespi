@@ -42,5 +42,12 @@ sudo echo "exit 0" >> /etc/rc.local
 
 sudo cp /home/pi/fichajespi/fichajespi.desktop /etc/xdg/autostart/
 
+echo "#####################__Instalando drivers pantalla táctil 3.5__"
+cd /home/pi/fichajespi
+git clone https://github.com/goodtft/LCD-show.git
+chmod -R 755 LCD-show
+cd LCD-show/
+sudo ./LCD35-show
+
 echo "#####################__Reinicio necesario__"
-echo "#####################__Ahora apaga la raspberry y vuelve a encenderla__"
+echo "#####################__Ahora apaga la raspberry, instala la pantalla táctil y vuelve a encenderla__"
