@@ -18,9 +18,6 @@ public class Fichaje {
 	private String tipo;
 
 	public Fichaje() {
-		this.hora = "error";
-		this.nombreUsuario = "error";
-		this.tipo = "error";
 	}
 
 	public Fichaje(String hora, String dia, String numeroUsuario, String nombreUsuario, String tipo) {

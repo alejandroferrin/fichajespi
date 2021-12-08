@@ -100,7 +100,7 @@ public class CardReader extends Thread {
 			builder.append(dateTime.format(formatterOut));
 			instance.changeFichaje(builder.toString());
 
-			CardReader.sleep(2000);
+			CardReader.sleep(3000);
 		} else {
 			instance.changeNumero(number + " no existe");
 			CardReader.sleep(5000);
