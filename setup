@@ -9,7 +9,8 @@ echo "#####################__Clonando repositorio"
 git clone https://github.com/alejandroferrin/fichajespi.git
 
 echo "#####################__Instalando JDK__"
-sudo apt -y install openjdk-11-jdk
+#sudo apt -y install openjdk-11-jdk
+sudo apt -y install openjdk-8-jdk
 
 echo "#####################__Instalando SmartCard Reader__"
 sudo apt-get -y install subversion autoconf debhelper flex libusb-dev libpcsclite-dev libpcsclite1 libccid pcscd pcsc-tools libpcsc-perl libusb-1.0-0-dev libtool libssl-dev cmake checkinstall
