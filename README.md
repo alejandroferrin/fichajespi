@@ -1,5 +1,8 @@
 ![logo](resources/fichajesPi.png  "logo")
 
+
+[Demo de funcionamiento](https://youtu.be/SXFIXl85gbs) 
+
 FichajesPi es una aplicación ideada para permitir cumplir una necesidad de las empresas: __registrar las horas de trabajo de sus empleados__.
 
 
