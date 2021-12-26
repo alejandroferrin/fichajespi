@@ -7,9 +7,9 @@ FichajesPi es una aplicación ideada para permitir cumplir una necesidad de las 
 
 
 
-#Instalación
+# Instalación
 
-##Requisitos previos
+## Requisitos previos
 
 Los clientes interesados en montar un sistema de control de presencia mediante la implementación de FichajesPi en sus empresas deben contar con unos requisitos de hardware y software que pasaremos a enumerar:
 
