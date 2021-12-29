@@ -43,6 +43,8 @@ sudo echo "exit 0" >> /etc/rc.local
 
 sudo cp /home/pi/fichajespi/fichajespi.desktop /etc/xdg/autostart/
 
+sudo sed -i '1 s/^/#/' /etc/xdg/lxsession/LXDE-pi/autostart
+
 echo "#####################__Instalando drivers pantalla táctil 3.5__"
 cd /home/pi/fichajespi
 git clone https://github.com/goodtft/LCD-show.git
