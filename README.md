@@ -123,7 +123,9 @@ Para modificar los parámetros por defecto debemos abrir el archivo ‘docker-co
 Este script creará las imágenes de los contenedores de docker y levantará los mismos mediante el uso de docker-compose.
 
 
-
+usuario por defecto tras instalación:
+user: fichajesPi000
+pass: fichajesPi000
 
 
 
