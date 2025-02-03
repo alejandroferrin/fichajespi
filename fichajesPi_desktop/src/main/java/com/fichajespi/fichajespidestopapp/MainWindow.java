@@ -249,7 +249,7 @@ public class MainWindow extends javax.swing.JFrame {
 
   public void resetScreen() {
     jLabelNombre.setText("Esperando...");
-    jLabelFichaje.setText("Acerce su tarjeta...");
+    jLabelFichaje.setText("Acerque su tarjeta...");
     jLabelNumero.setText("");
   }
 
